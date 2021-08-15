@@ -1,0 +1,21 @@
+{
+    "name": "istore/app",
+    "authors": [
+        {
+            "name": "Evgeny Gurevich",
+            "email": "hello.gurevich@gmail.com"
+        }
+    ],
+    "require": {
+        "laminas/laminas-diactoros": "^2.3",
+        "laminas/laminas-httphandlerrunner": "^1.2"        
+    },
+    "autoload": {
+        "psr-4": {
+            "App\\" : "App/"
+        }
+    },
+    "require-dev": {
+        "laminas/laminas-code": "^3.1.0"
+    }
+}
