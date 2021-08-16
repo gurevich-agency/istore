@@ -18,14 +18,13 @@ $this->params['active'] = $active;
 <form action="" id="add-user">
 
     <div class="mb-3">
-        <label class="form-label">Customer name</label>
-        <input type="text" class="form-control" placeholder="John Doe">
+        <label class="form-label">Customer name<sup style="color: #ff0000">*</sup></label>
+        <input name="name" type="text" class="form-control" required placeholder="John Doe">
     </div>
 
     <div class="mb-3">
-        <label class="form-label">Customer type</label>
-        <select class="form-select">
-            <option selected>Choose...</option>
+        <label class="form-label">Customer type<sup style="color: #ff0000">*</sup></label>
+        <select name="usertype" class="form-select" required>            
             <option value="Private">Private</option>
             <option value="Business">Business</option>
             <option value="Student">Student</option>
@@ -33,24 +32,23 @@ $this->params['active'] = $active;
     </div>
 
     <div class="mb-3">
-        <label class="form-label">Phone</label>
-        <input type="text" class="form-control" placeholder="+9720000000">
+        <label class="form-label">Phone<sup style="color: #ff0000">*</sup></label>
+        <input name="phone" type="text" class="form-control" required placeholder="+9720000000">
     </div>
 
     <div class="mb-3">
-        <label class="form-label">Email</label>
-        <input type="text" class="form-control" placeholder="example@gmail.com">
+        <label class="form-label">Email<sup style="color: #ff0000">*</sup></label>
+        <input name="email" type="text" class="form-control" required placeholder="example@gmail.com">
     </div>
 
     <div class="mb-3">  
-        <label class="form-label">Full address</label>
-        <textarea class="form-control" rows="3"></textarea>        
+        <label class="form-label">Full address<sup style="color: #ff0000">*</sup></label>
+        <textarea name="address" class="form-control" rows="3" required></textarea>        
     </div>
 
     <div class="mb-3">
-        <label class="form-label">Gender</label>
-        <select class="form-select">
-            <option selected>Choose...</option>
+        <label name="gender" class="form-label">Gender<sup style="color: #ff0000">*</sup></label>
+        <select name="gender" class="form-select" required>           
             <option value="Man">Man</option>
             <option value="Woman">Woman</option>
             <option value="Other">Other</option>
@@ -58,9 +56,8 @@ $this->params['active'] = $active;
     </div>
 
     <div class="mb-3">
-        <label class="form-label">Favorite products</label>
-        <select class="form-select">
-            <option selected>Choose...</option>
+        <label class="form-label">Favorite products<sup style="color: #ff0000">*</sup></label>
+        <select name="favorite" class="form-select" required>            
             <option value="iPad">iPad</option>
             <option value="iPhone">iPhone</option>
             <option value="AppleTV">AppleTV</option>
@@ -72,12 +69,12 @@ $this->params['active'] = $active;
     </div>
 
     <div class="mb-3">
-        <label class="form-label">Image</label>
-        <input type="text" class="form-control" placeholder="John Doe">
+        <label class="form-label">Image<sup style="color: #ff0000">*</sup></label>
+        <input name="image" type="text" class="form-control" placeholder="John Doe" required>
     </div>
 
     <div>
-        <button type="button" class="btn btn-primary">Add new User</button>
+        <button type="button" class="btn btn-primary js-add-user-button">Add new User</button>
     </div>
     
 </form>

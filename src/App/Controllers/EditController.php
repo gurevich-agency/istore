@@ -6,12 +6,22 @@ use App\Db\User;
 class EditController extends Controller
 {   
     public function init(ServerRequest $request, $orm = null)    
-    {
-        // $u = $orm->getRepository(User::class)->findByPK(2);
-        $changes = json_decode($request->getBody()->getContents(), true);
+    {        
+        $data = json_decode($request->getBody()->getContents(), true);
 
-        $arUsertype = $changes['userType'];
-        $arFavorite = $changes['favorite'];
+        if($data['action'] == 'update') {
+            return $this->updateUser($data, $orm);
+        }
+
+        if($data['action'] == 'add') {
+            return $this->addUser($data, $orm);
+        }
+
+    }
+
+    function updateUser($data, $orm) {
+        $arUsertype = $data['userType'];
+        $arFavorite = $data['favorite'];
 
         if (count($arUsertype) > 0) {
             foreach ($arUsertype as $k => $v) {
@@ -30,12 +40,22 @@ class EditController extends Controller
         }
 
         return ['status' => 'ok'];
+    }
 
-        // print_r($u);
+    function addUser($data, $orm){
 
-        // $u->setName("New " . mt_rand(0, 1000));
+        $u = new User();
 
-        // (new \Cycle\ORM\Transaction($orm))->persist($u)->run();
+        foreach (array_filter($data['values']) as $k => $v) {            
+            $name = 'set'.ucfirst($k);            
+            $u->$name($v);
+        }               
+        
+        $t = new \Cycle\ORM\Transaction($orm);
+        $t->persist($u);
+        $t->run();
+
+        return ['status' => 'ok'];
     }
 } 
 ?>
