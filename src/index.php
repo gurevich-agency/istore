@@ -12,13 +12,19 @@ require_once('vendor/autoload.php');
 
 $html = '<h1>Im working</h1>';
 
-$htmlResponse = new HtmlResponse($html);
+/**Initialization */
+$request = ServerRequestFactory::fromGlobals();
 
+/**Process */
+// $app = Api20\App::create($request);
+// $response = new JsonResponse($app->run($request)); 
+
+$app = App\App::create($request);
+$htmlResponse = new HtmlResponse($app->run($request));
 
 /**Postprocessing */
 // $response = $response->withHeader('Access-Control-Allow-Origin', '*');
 // $response = $response->withHeader('Access-Control-Allow-Headers', 'Content-Type, Access-Control-Allow-Headers, Authorization, X-Requested-With');
-
 
 /**Sending */
 $emitter = new SapiEmitter();
