@@ -40,5 +40,7 @@
         </div>
     </div>
 
+    <script src="/App/Views/Layouts/default/js/script.js"></script>
+
 </body>
 </html>
