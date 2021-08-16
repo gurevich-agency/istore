@@ -1,7 +1,7 @@
 <?php
 use Laminas\Diactoros\ServerRequestFactory;
-use Laminas\Diactoros\Response\JsonResponse;
 use Laminas\Diactoros\Response\HtmlResponse;
+use Laminas\Diactoros\Response\JsonResponse;
 use Laminas\HttpHandlerRunner\Emitter\SapiEmitter;
 
 ini_set('display_errors', 1);
@@ -15,12 +15,14 @@ $html = '<h1>Im working</h1>';
 /**Initialization */
 $request = ServerRequestFactory::fromGlobals();
 
+
+
 /**Process */
 // $app = Api20\App::create($request);
 // $response = new JsonResponse($app->run($request)); 
 
 $app = App\App::create($request);
-$htmlResponse = new HtmlResponse($app->run($request));
+$response = !($request->getServerParams()['REQUEST_URI'] == '/edit/') ? new HtmlResponse($app->run($request)) : new JsonResponse($app->run($request));
 
 /**Postprocessing */
 // $response = $response->withHeader('Access-Control-Allow-Origin', '*');
@@ -28,6 +30,6 @@ $htmlResponse = new HtmlResponse($app->run($request));
 
 /**Sending */
 $emitter = new SapiEmitter();
-$emitter->emit($htmlResponse);
+$emitter->emit($response);
 
 ?>

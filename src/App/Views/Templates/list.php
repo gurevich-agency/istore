@@ -1,42 +1,5 @@
 <?php
-
-use App\Db\DbConnection;
-use Spiral\Database;
-use Cycle\ORM;
-use Cycle\ORM\Schema;
-use Cycle\ORM\Mapper\Mapper;
-use Cycle\ORM\Transaction;
-use Cycle\Annotated\Annotation\Entity;
-use Cycle\Annotated\Annotation\Column;
 use App\Db\User;
-
-$dbConnection = new DbConnection();
-$orm = new ORM\ORM(new ORM\Factory($dbConnection->getConnection()));
-
-$orm = $orm->withSchema(new Schema([
-    'user' => [
-         Schema::MAPPER      => Mapper::class, // default POPO mapper
-         Schema::ENTITY      => User::class,
-         Schema::DATABASE    => 'default',
-         Schema::TABLE       => 'users',
-         Schema::PRIMARY_KEY => 'id',
-         Schema::COLUMNS     => [
-            'id'   => 'id',  // property => column
-            'name' => 'name',
-            'usertype' => 'usertype',
-            'phone' => 'phone',
-            'email' => 'email',
-            'address' => 'address',
-            'gender' => 'gender',
-            'favorite' => 'favorite',
-            'image' => 'image'
-         ],
-         Schema::TYPECAST    => [
-            'id' => 'int'
-         ],
-         Schema::RELATIONS   => []
-     ]
-]));
 
 $extends = 'App/Views/Layouts/default/layout.php';
 $this->params['title'] = $title;
@@ -56,6 +19,9 @@ Random image per user (using catAPI ) -->
 <div class="">
     <div class="users">
         <div class="users__header">
+            <div class="users__header-item id">
+                Id
+            </div>
             <div class="users__header-item name">
                 Customer name
             </div>
@@ -85,12 +51,19 @@ Random image per user (using catAPI ) -->
 
             <?php foreach ($orm->getRepository(User::class)->findAll() as $user):?>
                 <div class="users__body-row">
+                    <div class="users__list-item id">
+                        <?=$user->getId();?>
+                    </div>
                     <div class="users__list-item name">
                         <?=$user->getName();?>
                     </div>
-                    <div class="users__list-item type">
-                        <?=$user->getUsertype();?>
-                    </div>
+                                        
+                    <select data-id="<?=$user->getId()?>" data-name="usertype" name="usertype" class="form-select users__list-item type">                            
+                        <option <?php if ($user->getUsertype() == 'Private'):?> selected<?php endif;?> value="Private">Private</option>
+                        <option <?php if ($user->getUsertype() == 'Business'):?> selected<?php endif;?> value="Business">Business</option>
+                        <option <?php if ($user->getUsertype() == 'Student'):?> selected<?php endif;?> value="Student">Student</option>
+                    </select>                        
+                    
                     <div class="users__list-item phone">
                         <?=$user->getPhone();?>
                     </div>
@@ -103,9 +76,17 @@ Random image per user (using catAPI ) -->
                     <div class="users__list-item gender">
                         <?=$user->getGender();?>
                     </div>
-                    <div class="users__list-item favorite">
-                        <?=$user->getFavorite();?>
-                    </div>
+                    
+                    <select data-id="<?=$user->getId()?>" data-name="favorite" name="favorite" class="form-select users__list-item favorite">                             
+                        <option <?php if ($user->getFavorite() == 'iPad'):?> selected<?php endif;?> value="iPad">iPad</option>
+                        <option <?php if ($user->getFavorite() == 'iPhone'):?> selected<?php endif;?> value="iPhone">iPhone</option>
+                        <option <?php if ($user->getFavorite() == 'AppleTV'):?> selected<?php endif;?> value="AppleTV">AppleTV</option>
+                        <option <?php if ($user->getFavorite() == 'Apple Watch'):?> selected<?php endif;?> value="Apple Watch">Apple Watch</option>
+                        <option <?php if ($user->getFavorite() == 'Airpods'):?> selected<?php endif;?> value="Airpods">Airpods</option>
+                        <option <?php if ($user->getFavorite() == 'iMac'):?> selected<?php endif;?> value="iMac">iMac</option>
+                        <option <?php if ($user->getFavorite() == 'Macbook'):?> selected<?php endif;?> value="Macbook">Macbook</option>
+                    </select>
+                    
                     <div class="users__list-item image">
                         <?=$user->getImage();?>
                     </div> 
@@ -115,6 +96,9 @@ Random image per user (using catAPI ) -->
         </div>
 
         <div class="users__button-container">
+            <span class="users__button btn btn-success js-save-changes me-4">
+                Save changes
+            </span>
             <a href="/add/" class="users__button btn btn-primary">
                 Add new User
             </a>

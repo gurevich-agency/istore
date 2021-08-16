@@ -8,16 +8,14 @@ use Laminas\Diactoros\ServerRequest;
 class AddController extends Controller
 {   
  
-    public function init(ServerRequest $request)
+    public function init(ServerRequest $request, $orm = null)
     {
         $render = new TemplateRenderer();
         return $render->render('App/Views/Templates/add.php', 
         [
             'title' => 'Add new User', 
             'active' => 'add', 
-            'm' => 10, 
-            'n' => 20, 
-            'o' => 30
+            'orm' => $orm
         ]);
     }
     

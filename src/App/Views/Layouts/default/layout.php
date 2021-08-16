@@ -20,10 +20,7 @@
                     </li>
                     <li class="nav-item">
                         <a class="nav-link<?php if($this->params['active'] == 'add'):?> active<?php endif;?>" href="/add/">Add new User</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link<?php if($this->params['active'] == 'edit'):?> active<?php endif;?>" href="/edit/">Edit User</a>
-                    </li> 
+                    </li>                     
                 </ul>
             </div>            
         </div>                    
