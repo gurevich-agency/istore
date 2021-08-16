@@ -5,3 +5,42 @@
 .content{
     padding: 50px 0;
 }
+
+
+
+
+
+/* List */
+.users{
+    padding: 30px 0;    
+}
+
+.users__header{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    border: 1px #c6c2c2 solid;
+    height: 50px;
+    padding: 10px 20px;
+    color: #000;
+    font-weight: 700;
+}
+
+.users__body-row{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    border-bottom: 1px #c6c2c2 dotted;
+    min-height: 50px;
+    line-height: 50px;
+    padding: 0 20px; 
+}
+
+.users__button-container{
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    padding: 30px 0 0 0;    
+}
+/*  */
+  
