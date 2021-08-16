@@ -53,8 +53,8 @@ class ComposerStaticInit7a003c6fbfbf46a83af13906f6fb0eca
         ),
         'Psr\\Http\\Message\\' => 
         array (
-            0 => __DIR__ . '/..' . '/psr/http-factory/src',
-            1 => __DIR__ . '/..' . '/psr/http-message/src',
+            0 => __DIR__ . '/..' . '/psr/http-message/src',
+            1 => __DIR__ . '/..' . '/psr/http-factory/src',
         ),
         'Laminas\\ZendFrameworkBridge\\' => 
         array (

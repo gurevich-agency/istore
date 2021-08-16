@@ -46,7 +46,7 @@
                     "dev-dev-4.0": "4.0.x-dev"
                 }
             },
-            "installation-source": "source",
+            "installation-source": "dist",
             "autoload": {
                 "psr-4": {
                     "Laminas\\Code\\": "src/"
@@ -121,7 +121,7 @@
                     "module": "Laminas\\Diactoros"
                 }
             },
-            "installation-source": "source",
+            "installation-source": "dist",
             "autoload": {
                 "files": [
                     "src/functions/create_uploaded_file.php",
@@ -215,7 +215,7 @@
                     "dev-develop": "3.3-dev"
                 }
             },
-            "installation-source": "source",
+            "installation-source": "dist",
             "autoload": {
                 "psr-4": {
                     "Laminas\\EventManager\\": "src/"
@@ -284,7 +284,7 @@
                     "config-provider": "Laminas\\HttpHandlerRunner\\ConfigProvider"
                 }
             },
-            "installation-source": "source",
+            "installation-source": "dist",
             "autoload": {
                 "psr-4": {
                     "Laminas\\HttpHandlerRunner\\": "src/"
@@ -348,7 +348,7 @@
                     "module": "Laminas\\ZendFrameworkBridge"
                 }
             },
-            "installation-source": "source",
+            "installation-source": "dist",
             "autoload": {
                 "files": [
                     "src/autoload.php"
@@ -408,7 +408,7 @@
                     "dev-master": "1.0.x-dev"
                 }
             },
-            "installation-source": "source",
+            "installation-source": "dist",
             "autoload": {
                 "psr-4": {
                     "Psr\\Http\\Message\\": "src/"
@@ -465,7 +465,7 @@
                     "dev-master": "1.0.x-dev"
                 }
             },
-            "installation-source": "source",
+            "installation-source": "dist",
             "autoload": {
                 "psr-4": {
                     "Psr\\Http\\Message\\": "src/"
@@ -522,7 +522,7 @@
                     "dev-master": "1.0.x-dev"
                 }
             },
-            "installation-source": "source",
+            "installation-source": "dist",
             "autoload": {
                 "psr-4": {
                     "Psr\\Http\\Server\\": "src/"

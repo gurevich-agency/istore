@@ -7,7 +7,7 @@ $baseDir = dirname($vendorDir);
 
 return array(
     'Psr\\Http\\Server\\' => array($vendorDir . '/psr/http-server-handler/src'),
-    'Psr\\Http\\Message\\' => array($vendorDir . '/psr/http-factory/src', $vendorDir . '/psr/http-message/src'),
+    'Psr\\Http\\Message\\' => array($vendorDir . '/psr/http-message/src', $vendorDir . '/psr/http-factory/src'),
     'Laminas\\ZendFrameworkBridge\\' => array($vendorDir . '/laminas/laminas-zendframework-bridge/src'),
     'Laminas\\HttpHandlerRunner\\' => array($vendorDir . '/laminas/laminas-httphandlerrunner/src'),
     'Laminas\\EventManager\\' => array($vendorDir . '/laminas/laminas-eventmanager/src'),
