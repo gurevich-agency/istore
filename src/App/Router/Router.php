@@ -32,14 +32,14 @@ class Router{
             return null;
         }
 
-        return 'Api\Controllers\\' . $this->match($this->request)->getController();        
+        return 'App\Controllers\\' . $this->match($this->request)->getController();        
     }
 
     public function getHandler(): ?string
     { 
         $handler = is_object($this->match($this->request)) ? $this->match($this->request)->getHandler() : null;        
 
-        if(!$handler || !method_exists('Api\Controllers\\' . $this->match($this->request)->getController(), $handler)){            
+        if(!$handler || !method_exists('App\Controllers\\' . $this->match($this->request)->getController(), $handler)){            
             return null;
         } 
 

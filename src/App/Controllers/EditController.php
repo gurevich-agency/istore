@@ -1,16 +1,24 @@
 <?php
 namespace App\Controllers;
 
+use App\Views\TemplateRenderer;
 use Laminas\Diactoros\ServerRequest;
+
 
 
 class EditController extends Controller
 {   
 
     public function init(ServerRequest $request)
-    {   
-        return 'EditController';
+    {
+        $render = new TemplateRenderer();
+        return $render->render('App/Views/Templates/edit.php', 
+        [
+            'title' => 'Edit User', 
+            'x' => 100, 
+            'y' => 200, 
+            'z' => 300
+        ]);
     }
-
 } 
 ?>
