@@ -1,19 +1,27 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>IStore App</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet">
-</head>
-<body>
+<?php
+use Laminas\Diactoros\ServerRequestFactory;
+use Laminas\Diactoros\Response\JsonResponse;
+use Laminas\Diactoros\Response\HtmlResponse;
+use Laminas\HttpHandlerRunner\Emitter\SapiEmitter;
 
-    <div class="container">
-        <h1>
-            IStore App
-        </h1>
-    </div>
-    
-</body>
-</html>
+ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
+error_reporting(E_ALL);
+
+require_once('vendor/autoload.php');
+
+$html = '<h1>Im working</h1>';
+
+$htmlResponse = new HtmlResponse($html);
+
+
+/**Postprocessing */
+// $response = $response->withHeader('Access-Control-Allow-Origin', '*');
+// $response = $response->withHeader('Access-Control-Allow-Headers', 'Content-Type, Access-Control-Allow-Headers, Authorization, X-Requested-With');
+
+
+/**Sending */
+$emitter = new SapiEmitter();
+$emitter->emit($htmlResponse);
+
+?>

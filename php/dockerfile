@@ -1,8 +1,7 @@
 FROM php:7.2-apache
 RUN apt-get update
-RUN apt-get install -y libxml2-dev
-RUN apt-get install -y git
-RUN docker-php-ext-install pdo pdo_mysql mysqli soap
+RUN apt-get install -y libxml2-dev zlib1g-dev
+RUN docker-php-ext-install pdo pdo_mysql mysqli soap zip
 RUN a2enmod rewrite
 
 # Install Composer
