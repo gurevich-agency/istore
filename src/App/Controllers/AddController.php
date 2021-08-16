@@ -14,6 +14,7 @@ class AddController extends Controller
         return $render->render('App/Views/Templates/add.php', 
         [
             'title' => 'Add new User', 
+            'active' => 'add', 
             'm' => 10, 
             'n' => 20, 
             'o' => 30

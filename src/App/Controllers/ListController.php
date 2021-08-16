@@ -13,7 +13,7 @@ class ListController extends Controller
         return $render->render('App/Views/Templates/list.php', 
         [
             'title' => 'List of Users', 
-            'a' => 1, 
+            'active' => 'list', 
             'b' => 2, 
             'c' => 3
         ]);

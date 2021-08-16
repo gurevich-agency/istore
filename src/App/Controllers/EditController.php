@@ -15,6 +15,7 @@ class EditController extends Controller
         return $render->render('App/Views/Templates/edit.php', 
         [
             'title' => 'Edit User', 
+            'active' => 'edit', 
             'x' => 100, 
             'y' => 200, 
             'z' => 300
