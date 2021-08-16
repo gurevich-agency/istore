@@ -42,5 +42,30 @@
     justify-content: flex-end;
     padding: 30px 0 0 0;    
 }
+
+.name{
+    width: 140px;
+}
+.type{
+    width: 140px;
+}
+.phone{
+    width: 140px;
+}
+.email{
+    width: 180px;
+}
+.address{
+    width: 180px;
+}
+.gender{
+    width: 80px;
+}
+.favorite{
+    width: 100px;
+}
+.image{
+    width: 100px;
+}
 /*  */
   

@@ -27,18 +27,39 @@ class ComposerStaticInit7a003c6fbfbf46a83af13906f6fb0eca
     );
 
     public static $prefixLengthsPsr4 = array (
+        'S' => 
+        array (
+            'Spiral\\Pagination\\' => 18,
+            'Spiral\\Logger\\' => 14,
+            'Spiral\\Database\\' => 16,
+            'Spiral\\Core\\' => 12,
+        ),
         'P' => 
         array (
+            'Psr\\Log\\' => 8,
             'Psr\\Http\\Server\\' => 16,
             'Psr\\Http\\Message\\' => 17,
+            'Psr\\Container\\' => 14,
         ),
         'L' => 
         array (
             'Laminas\\ZendFrameworkBridge\\' => 28,
+            'Laminas\\Stdlib\\' => 15,
+            'Laminas\\Hydrator\\' => 17,
             'Laminas\\HttpHandlerRunner\\' => 26,
             'Laminas\\EventManager\\' => 21,
             'Laminas\\Diactoros\\' => 18,
             'Laminas\\Code\\' => 13,
+        ),
+        'D' => 
+        array (
+            'Doctrine\\Instantiator\\' => 22,
+            'Doctrine\\Inflector\\' => 19,
+            'Doctrine\\Common\\Collections\\' => 28,
+        ),
+        'C' => 
+        array (
+            'Cycle\\ORM\\' => 10,
         ),
         'A' => 
         array (
@@ -47,18 +68,50 @@ class ComposerStaticInit7a003c6fbfbf46a83af13906f6fb0eca
     );
 
     public static $prefixDirsPsr4 = array (
+        'Spiral\\Pagination\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/spiral/pagination/src',
+        ),
+        'Spiral\\Logger\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/spiral/logger/src',
+        ),
+        'Spiral\\Database\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/spiral/database/src',
+        ),
+        'Spiral\\Core\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/spiral/core/src',
+        ),
+        'Psr\\Log\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/psr/log/Psr/Log',
+        ),
         'Psr\\Http\\Server\\' => 
         array (
             0 => __DIR__ . '/..' . '/psr/http-server-handler/src',
         ),
         'Psr\\Http\\Message\\' => 
         array (
-            0 => __DIR__ . '/..' . '/psr/http-message/src',
-            1 => __DIR__ . '/..' . '/psr/http-factory/src',
+            0 => __DIR__ . '/..' . '/psr/http-factory/src',
+            1 => __DIR__ . '/..' . '/psr/http-message/src',
+        ),
+        'Psr\\Container\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/psr/container/src',
         ),
         'Laminas\\ZendFrameworkBridge\\' => 
         array (
             0 => __DIR__ . '/..' . '/laminas/laminas-zendframework-bridge/src',
+        ),
+        'Laminas\\Stdlib\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/laminas/laminas-stdlib/src',
+        ),
+        'Laminas\\Hydrator\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/laminas/laminas-hydrator/src',
         ),
         'Laminas\\HttpHandlerRunner\\' => 
         array (
@@ -75,6 +128,22 @@ class ComposerStaticInit7a003c6fbfbf46a83af13906f6fb0eca
         'Laminas\\Code\\' => 
         array (
             0 => __DIR__ . '/..' . '/laminas/laminas-code/src',
+        ),
+        'Doctrine\\Instantiator\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/doctrine/instantiator/src/Doctrine/Instantiator',
+        ),
+        'Doctrine\\Inflector\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/doctrine/inflector/lib/Doctrine/Inflector',
+        ),
+        'Doctrine\\Common\\Collections\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/doctrine/collections/lib/Doctrine/Common/Collections',
+        ),
+        'Cycle\\ORM\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/cycle/orm/src',
         ),
         'App\\' => 
         array (
