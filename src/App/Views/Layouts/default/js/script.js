@@ -57,7 +57,19 @@ window.addEventListener('load', function(){
                     console.log(data);
                 });; 
             }
-        });   
+        }); 
+        
+        
+
+        // Sorting         
+        document.addEventListener('click', function(e){
+            if (e.target.classList.contains('js-sort')){                  
+                const sort = e.target.dataset.sort;
+                const direction = e.target.dataset.direction; 
+                const uri = `?sort=${sort}&direction=${direction}`;  
+                window.location.href = window.location.pathname + uri;
+            }
+        });
         
     }  
 

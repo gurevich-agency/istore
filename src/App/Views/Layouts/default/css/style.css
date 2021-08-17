@@ -50,6 +50,17 @@
 .name{
     width: 120px;
 }
+.id i:before,
+.name i:before,
+.phone i:before
+{
+    cursor: pointer;
+}
+.id:hover i:before,
+.name:hover i:before,
+.phone:hover i:before{
+    color: #ff0000;
+}
 .type{
     width: 140px;
     border: none;

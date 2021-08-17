@@ -6,30 +6,20 @@ $this->params['title'] = $title;
 $this->params['active'] = $active;
 ?>
 
-<!-- 
-customer name
-Customer type - choice of the following types: private, business, student
-phone
-Email
-full address
-Gender - Choice of the following genders: man, woman, other.
-Favorite products - multiple choice of the following options: iPad, iPhone, AppleTV, Apple Watch, Airpods, iMac, Macbook
-Random image per user (using catAPI ) -->
-
 <div class="">
     <div class="users">
         <div class="users__header">
             <div class="users__header-item id">
-                Id  <i class="bi bi-sort-up"></i>
+                Id  <i class="bi bi-sort-down-alt js-sort" data-sort="id" data-direction="asc"></i>
             </div>
             <div class="users__header-item name">
-                Name  <i class="bi bi-sort-up"></i>
+                Name  <i class="bi bi-sort-down-alt js-sort" data-sort="name" data-direction="asc"></i>
             </div>
             <div class="users__header-item type">
                 Customer type
             </div>
             <div class="users__header-item phone">
-                Phone  <i class="bi bi-sort-up"></i>
+                Phone  <i class="bi bi-sort-down-alt js-sort" data-sort="phone" data-direction="asc"></i>
             </div>
             <div class="users__header-item email">
                 Email
@@ -52,7 +42,7 @@ Random image per user (using catAPI ) -->
         </div>
         <div class="users__body">           
 
-            <?php foreach ($orm->getRepository(User::class)->findAll() as $user):?>
+            <?php foreach ($orm as $user):?>
                 <div class="users__body-row align-items-center" data-rowid="<?=$user->getId()?>">
                     <div class="users__list-item id">
                         <?=$user->getId();?>
