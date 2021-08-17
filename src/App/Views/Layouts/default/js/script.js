@@ -86,9 +86,7 @@ window.addEventListener('load', function(){
     document.addEventListener('click', function(e){         
 
         // Adding of User
-        if(e.target.classList.contains('js-add-user-button')){
-
-            
+        if(e.target.classList.contains('js-add-user-button')){            
 
             const errors =[];
             const values = {};
@@ -122,10 +120,7 @@ window.addEventListener('load', function(){
             .then((data) => {               
                 if (data.status == 'ok'){
                     alert('Record successfully added=)');
-                    const inputs = document.getElementById('add-user').elements;
-                    for (const input of inputs) {
-                        input.value = '';
-                    }
+                    location.reload();
                 }
             });;   
 
