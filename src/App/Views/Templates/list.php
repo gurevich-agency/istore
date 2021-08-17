@@ -20,16 +20,16 @@ Random image per user (using catAPI ) -->
     <div class="users">
         <div class="users__header">
             <div class="users__header-item id">
-                Id
+                Id  <i class="bi bi-sort-up"></i>
             </div>
             <div class="users__header-item name">
-                Customer name
+                Name  <i class="bi bi-sort-up"></i>
             </div>
             <div class="users__header-item type">
                 Customer type
             </div>
             <div class="users__header-item phone">
-                Phone
+                Phone  <i class="bi bi-sort-up"></i>
             </div>
             <div class="users__header-item email">
                 Email
