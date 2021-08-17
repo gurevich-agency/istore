@@ -81,5 +81,10 @@
 .image{
     width: 100px;
 }
+#cat-picture{
+    width: 100px; 
+    height: auto;
+    margin-right: 15px;
+}
 /*  */
   

@@ -36,3 +36,6 @@ In addition, the administration panel should have the option to add / remove / e
 (which will affect the selections in the form in the first step):
 Customer Type
 Favorite products
+
+
+DB settings in /native/src/App/Db/DbConnection.php

@@ -10,9 +10,7 @@ class DbConnection {
         $this->connection = new Database\DatabaseManager(
             new Database\Config\DatabaseConfig([
                 'default' => [
-                    'connection'     => 'mysql',
-                    // 'readConnection' => 'mysqlSlave',
-                    // 'prefix'         => 'secondary_'
+                    'connection'     => 'mysql'
                 ],
                 'databases'   => [
                     'default' => ['connection' => 'mysql']

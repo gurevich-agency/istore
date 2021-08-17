@@ -44,14 +44,17 @@ window.addEventListener('load', function(){
 
     let catPicture;
 
-    fetch('https://thatcopy.pw/catapi/rest/')
-    .then((response) => {
-        return response.json();
-    })
-    .then((data) => {
-        catPicture = data;
+    const promise = new Promise((resolve, reject) => {
+        fetch('https://thatcopy.pw/catapi/rest/')
+        .then((response) => {
+            resolve(response.json());
+        });
+    });
+      
+    promise.then((value) => {
+        catPicture = value;
         document.getElementById('cat-picture').src = catPicture.url;
-    }); 
+    });
     
 
     // Adding of User
@@ -98,7 +101,7 @@ window.addEventListener('load', function(){
 
             
 
-            fetch('http://172.23.0.4/edit/', {
+            fetch('/edit/', {
                 method: 'POST', 
                 body: JSON.stringify({action: 'add', values}), 
                 headers: {
