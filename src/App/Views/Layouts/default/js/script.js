@@ -37,30 +37,31 @@ window.addEventListener('load', function(){
 
 
     
-    // GetPhoto
-    if(window.location['pathname'] == '/add/'){
-
-        let catPhoto;
-        
-        let promise = fetch('https://thatcopy.pw/catapi/rest/')
-        .then((response) => {
-            return response.json();
-        })
-        .then((data) => {
-            console.log(data['url']);  
-                  
-        });
-
-        
-
+    // GetPhoto    
+    if(!(window.location['pathname'] == '/add/')){
+        return;
     }
+
+    let catPicture;
+
+    fetch('https://thatcopy.pw/catapi/rest/')
+    .then((response) => {
+        return response.json();
+    })
+    .then((data) => {
+        catPicture = data;
+        document.getElementById('cat-picture').src = catPicture.url;
+    }); 
+    
 
     // Adding of User
     document.addEventListener('click', function(e){ 
         if(e.target.classList.contains('js-add-user-button')){
             const errors =[];
             const values = {};
-            const inputs = document.getElementById('add-user').elements;           
+            const inputs = document.getElementById('add-user').elements;    
+            
+            console.log(document.getElementById('cat-picture').src)
             
             for (const input of inputs) {
 

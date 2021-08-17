@@ -69,8 +69,9 @@ $this->params['active'] = $active;
     </div>
 
     <div class="mb-3">
-        <label class="form-label">Image<sup style="color: #ff0000">*</sup></label>
-        <input name="image" type="text" class="form-control" placeholder="John Doe" required>
+        <img src="https://via.placeholder.com/100" id="cat-picture" alt="" style="width: 100px; height: auto">
+        <label class="form-label">Image<sup style="color: #ff0000">*</sup></label>        
+        <input name="image" type="hidden" class="form-control" placeholder="John Doe" required>
     </div>
 
     <div>
