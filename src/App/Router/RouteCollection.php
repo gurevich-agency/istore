@@ -9,7 +9,7 @@ class RouteCollection
     {
         $this->routes[] = new Route('add', 'AddController');
         $this->routes[] = new Route('list', 'ListController');
-        $this->routes[] = new Route('edit', 'EditController');        
+        $this->routes[] = new Route('edit', 'EditController'); 
     }
 
     public function addRoute(Route $route){
