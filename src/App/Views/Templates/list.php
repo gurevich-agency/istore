@@ -46,11 +46,14 @@ Random image per user (using catAPI ) -->
             <div class="users__header-item image">
                 Image
             </div>
+            <div class="users__header-item delete">
+                Action
+            </div>
         </div>
         <div class="users__body">           
 
             <?php foreach ($orm->getRepository(User::class)->findAll() as $user):?>
-                <div class="users__body-row align-items-center">
+                <div class="users__body-row align-items-center" data-rowid="<?=$user->getId()?>">
                     <div class="users__list-item id">
                         <?=$user->getId();?>
                     </div>
@@ -90,6 +93,12 @@ Random image per user (using catAPI ) -->
                     <div class="users__list-item image">
                         <img src="<?=$user->getImage();?>" alt="">
                     </div> 
+
+                    <div class="users__list-item delete">
+                        <span data-id=<?=$user->getId()?> class="btn btn-danger js-delete-record">
+                            Delete
+                        </span>
+                    </div>
                 </div>
             <?php endforeach;?>
             

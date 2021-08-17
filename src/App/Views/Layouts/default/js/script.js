@@ -32,8 +32,34 @@ window.addEventListener('load', function(){
                 });;           
             }        
         });
-    }
-    
+
+
+
+        // Handler to delete user    
+        document.addEventListener('click', function(e){
+            if(e.target.classList.contains('js-delete-record')){
+                const userId = e.target.dataset.id;
+                fetch('/edit/', {
+                    method: 'POST', 
+                    body: JSON.stringify({action: 'delete', id: userId}), 
+                    headers: {
+                        'Content-Type': 'application/json'
+                    }
+                })
+                .then((response) => {
+                    return response.json();
+                })
+                .then((data) => {
+                    if (data > 0){
+                        alert(`Record ${data} successfully deleted`);
+                       document.querySelector(`[data-rowid='${data}']`).remove();
+                    }
+                    console.log(data);
+                });; 
+            }
+        });   
+        
+    }  
 
 
     
@@ -56,9 +82,13 @@ window.addEventListener('load', function(){
     });
     
 
-    // Adding of User
-    document.addEventListener('click', function(e){ 
+    
+    document.addEventListener('click', function(e){         
+
+        // Adding of User
         if(e.target.classList.contains('js-add-user-button')){
+
+            
 
             const errors =[];
             const values = {};
@@ -91,7 +121,7 @@ window.addEventListener('load', function(){
             })
             .then((data) => {               
                 if (data.status == 'ok'){
-                    alert('Record successfuly added=)');
+                    alert('Record successfully added=)');
                     const inputs = document.getElementById('add-user').elements;
                     for (const input of inputs) {
                         input.value = '';
@@ -101,5 +131,6 @@ window.addEventListener('load', function(){
 
 
         }
+        
     });
 })

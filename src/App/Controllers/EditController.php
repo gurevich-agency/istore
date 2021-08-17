@@ -17,6 +17,10 @@ class EditController extends Controller
             return $this->addUser($data, $orm, $request);
         }
 
+        if($data['action'] == 'delete') {
+            return $this->deleteUser($data, $orm);
+        }
+
     }
 
     function updateUser($data, $orm) {
@@ -67,6 +71,12 @@ class EditController extends Controller
         $t->run();
 
         return ['status' => 'ok'];
+    }
+
+    function deleteUser($data, $orm){
+        $u = $orm->getRepository(User::class)->findByPK($data['id']);
+        (new \Cycle\ORM\Transaction($orm))->delete($u)->run();
+        return $data['id'];
     }
 } 
 ?>
