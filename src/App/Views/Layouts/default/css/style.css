@@ -81,6 +81,11 @@
 .image{
     width: 100px;
 }
+.image img{
+    height: 80px;
+    width: auto;
+    padding: 10px 0;
+}
 #cat-picture{
     width: 100px; 
     height: auto;

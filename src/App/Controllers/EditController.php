@@ -14,7 +14,7 @@ class EditController extends Controller
         }
 
         if($data['action'] == 'add') {
-            return $this->addUser($data, $orm);
+            return $this->addUser($data, $orm, $request);
         }
 
     }
@@ -42,7 +42,18 @@ class EditController extends Controller
         return ['status' => 'ok'];
     }
 
-    function addUser($data, $orm){
+    function addUser($data, $orm, $request){
+        $documentRoot = $request->getServerParams()['DOCUMENT_ROOT'];
+        
+        // Initialize a file URL to the variable
+        $fileUrl = $data['values']['image'];
+        
+        // Use basename() function to return the base name of file
+        $fileName = $documentRoot . '/download/' . basename($fileUrl);        
+        
+        if(file_put_contents( $fileName,file_get_contents($fileUrl))) {
+            $data['values']['image'] = '/download/' . basename($fileUrl);
+        }
 
         $u = new User();
 

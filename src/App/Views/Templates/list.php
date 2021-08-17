@@ -50,7 +50,7 @@ Random image per user (using catAPI ) -->
         <div class="users__body">           
 
             <?php foreach ($orm->getRepository(User::class)->findAll() as $user):?>
-                <div class="users__body-row">
+                <div class="users__body-row align-items-center">
                     <div class="users__list-item id">
                         <?=$user->getId();?>
                     </div>
@@ -88,7 +88,7 @@ Random image per user (using catAPI ) -->
                     </select>
                     
                     <div class="users__list-item image">
-                        <?=$user->getImage();?>
+                        <img src="<?=$user->getImage();?>" alt="">
                     </div> 
                 </div>
             <?php endforeach;?>

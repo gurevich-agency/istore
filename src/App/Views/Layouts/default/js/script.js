@@ -38,11 +38,10 @@ window.addEventListener('load', function(){
 
     
     // GetPhoto    
-    if(!(window.location['pathname'] == '/add/')){
+    if(!(window.location['pathname'] == '/add/' || window.location['pathname'] == '/add')){
         return;
     }
-
-    let catPicture;
+   
 
     const promise = new Promise((resolve, reject) => {
         fetch('https://thatcopy.pw/catapi/rest/')
@@ -51,20 +50,19 @@ window.addEventListener('load', function(){
         });
     });
       
-    promise.then((value) => {
-        catPicture = value;
-        document.getElementById('cat-picture').src = catPicture.url;
+    promise.then((value) => {        
+        document.getElementById('cat-picture').src = value.url;
+        document.getElementsByName('image')[0].value = value.url;
     });
     
 
     // Adding of User
     document.addEventListener('click', function(e){ 
         if(e.target.classList.contains('js-add-user-button')){
+
             const errors =[];
             const values = {};
-            const inputs = document.getElementById('add-user').elements;    
-            
-            console.log(document.getElementById('cat-picture').src)
+            const inputs = document.getElementById('add-user').elements;            
             
             for (const input of inputs) {
 
@@ -75,31 +73,11 @@ window.addEventListener('load', function(){
                     input.classList.remove('is-invalid');
                     values[input.name] = input.value;
                 }  
-            }
-            
+            }  
 
             if(errors.length > 0){
                 return;
             }
-
-            // const formData = new FormData();
-            // const fileField = document.querySelector('input[type="file"]');
-
-            // formData.append('username', 'abc123');
-            // formData.append('avatar', fileField.files[0]);
-
-            // try {
-            // const response = await fetch('https://example.com/profile/avatar', {
-            //     method: 'PUT',
-            //     body: formData
-            // });
-            // const result = await response.json();
-            // console.log('Успех:', JSON.stringify(result));
-            // } catch (error) {
-            // console.error('Ошибка:', error);
-            // }
-
-            
 
             fetch('/edit/', {
                 method: 'POST', 
@@ -111,8 +89,14 @@ window.addEventListener('load', function(){
             .then((response) => {
                 return response.json();
             })
-            .then((data) => {
-                console.log(data);
+            .then((data) => {               
+                if (data.status == 'ok'){
+                    alert('Record successfuly added=)');
+                    const inputs = document.getElementById('add-user').elements;
+                    for (const input of inputs) {
+                        input.value = '';
+                    }
+                }
             });;   
 
 
